@@ -9,6 +9,7 @@ library(leaflet); library(dplyr)
 ```
 
 # Golden Gate Bridge Map
+## January 12, 2018
 
 ```{r}
 my_map <- leaflet() %>% addTiles()
