@@ -1,0 +1,22 @@
+---
+title: "Rmarkdown and Leaflet Example"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(leaflet); library(dplyr)
+```
+
+# Golden Gate Bridge Map
+
+```{r}
+my_map <- leaflet() %>% addTiles()
+
+sfSite <- c("<a href= 'http://www.goldengatebridge.org/'>Golden Gate Bridge Home Page</a>")
+
+sf_map <- my_map %>% 
+  addMarkers(lat=37.8199, lng=-122.4783, popup=sfSite)
+sf_map
+
+```
+
