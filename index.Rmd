@@ -1,23 +1,24 @@
 ---
-title: "Rmarkdown and Leaflet Example"
-date: January 12, 2018
+title: "rmd and plotly ex.Rmd"
+date: February 25, 2018
+output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(leaflet); library(dplyr)
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly); library(tidyverse)
 ```
 
-# Golden Gate Bridge Map
+## Histogram of price by diamond cut
 
-```{r}
-my_map <- leaflet() %>% addTiles()
+```{r, comment=FALSE, echo=FALSE, message=FALSE, fig.align='center'}
+p <- ggplot(diamonds, aes(x=price, color=cut))+
+  geom_freqpoly(binwidth=500)+
+  xlab("Price of Diamonds")+
+  ylab("Count of Diamonds")
 
-sfSite <- c("<a href= 'http://www.goldengatebridge.org/'>Golden Gate Bridge Home Page</a>")
-
-sf_map <- my_map %>% 
-  addMarkers(lat=37.8199, lng=-122.4783, popup=sfSite)
-sf_map
+ggplotly(p)
 
 ```
 
+## Thanks for tuning in!
